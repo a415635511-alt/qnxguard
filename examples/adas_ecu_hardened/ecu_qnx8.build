@@ -1,0 +1,14 @@
+# Hardened QNX SDP 8.0 ADAS ECU buildfile
+[virtual=x86_64,bios +compress] .bootstrap = {
+    startup-x86
+    PATH=/proc/boot
+    procnto-smp-instr -m ~e -m r
+}
+[+script] .script = {
+    slogger2 -U 21:21 &
+    io-sock -m pci -d igb &
+    aps create -b 55 adas_perception
+    aps create -b 25 infotainment
+    on -u 100:100 /proc/boot/sensor_resmgr &
+}
+[perms=0555] /proc/boot/sensor_resmgr=sensor_resmgr
