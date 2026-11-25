@@ -27,6 +27,10 @@ Building safety-critical automotive, robotics, and medical workloads on **QNX Ne
 
 ---
 
+## Step-by-Step Codelab (25 Minutes)
+
+Follow our complete hands-on migration & hardening tutorial in [`CODELAB.md`](CODELAB.md) (eligible for the QNX Global Hackathon **Best Codelab / Tutorial** bonus prize).
+
 ## Quick Start (Zero Dependencies)
 
 ```bash
