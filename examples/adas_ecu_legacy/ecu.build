@@ -1,0 +1,15 @@
+# Legacy QNX 7.1 ADAS ECU buildfile being migrated to QNX 8.0
+[virtual=x86_64,bios] .bootstrap = {
+    startup-x86
+    PATH=/proc/boot
+    procnto-smp
+}
+[+script] .script = {
+    slogger &
+    io-pkt-v6-hc -d e1000
+    qconn port=8000 &
+    aps create -b 65 adas_perception
+    aps create -b 45 infotainment
+    /proc/boot/sensor_resmgr &
+}
+[perms=4755] /proc/boot/sensor_resmgr=sensor_resmgr
